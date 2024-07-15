@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".Usuario">
+
+    <Button
+        android:id="@+id/button_adult"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="112dp"
+        android:background="@color/black"
+        android:text="Agregar perfil adulto"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_kid"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:background="@color/black"
+        android:text="Agregar perfil niño"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button_adult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#8C7070" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="147dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_igor" />
+
+    <ImageButton
+        android:id="@+id/circle1"
+        android:layout_width="139dp"
+        android:layout_height="139dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginBottom="356dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/circle_drawable"
+        android:backgroundTint="#A3C7EB"
+        android:contentDescription="Adult Profile"
+        android:scaleType="centerInside"
+        android:src="@drawable/adulto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/circle2"
+        android:layout_width="139dp"
+        android:layout_height="139dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="356dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/circle_drawable"
+        android:backgroundTint="#E1D2EF"
+        android:contentDescription="Kid Profile"
+        android:scaleType="centerInside"
+        android:src="@drawable/nino"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/circle1"
+        app:layout_constraintHorizontal_bias="0.315"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewkid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Niño"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#AE7676"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circle2"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="333dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Adulto"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#AE7676"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circle1"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="333dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="263dp"
+        android:layout_height="59dp"
+        android:gravity="center"
+        android:text="¿Quién está utilizando el teléfono?"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.244" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
