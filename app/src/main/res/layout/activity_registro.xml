@@ -64,7 +64,10 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="43dp"
                     android:layout_marginTop="16dp"
-                    android:hint="Fecha de nacimiento" />
+                    android:hint="Fecha de nacimiento"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:textColor="@android:color/black"/>
 
                 <EditText
                     android:id="@+id/edit_text_mail"
@@ -84,7 +87,8 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="43dp"
                     android:layout_marginTop="16dp"
-                    android:hint="Contraseña" />
+                    android:hint="Contraseña"
+                    android:inputType="textPassword" />
 
                 <EditText
                     android:id="@+id/edit_text_password2"
@@ -94,7 +98,8 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="43dp"
                     android:layout_marginTop="16dp"
-                    android:hint="Repetir contraseña" />
+                    android:hint="Repetir contraseña"
+                    android:inputType="textPassword" />
 
                 <Button
                     android:id="@+id/button_accepted"
