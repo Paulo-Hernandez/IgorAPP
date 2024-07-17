@@ -68,6 +68,7 @@ class iconos : AppCompatActivity() {
             val intent = Intent(this, Menu::class.java)
             intent.putExtra("EMAIL_EXTRA", email)
             intent.putExtra("NAME_EXTRA", nombreApoderado)
+            intent.putExtra("NAME_RECEP", nombreNino)
             intent.putExtra("APODE_EXTRA", true)
             startActivity(intent)
         }
@@ -77,6 +78,7 @@ class iconos : AppCompatActivity() {
             val intent = Intent(this, Menu::class.java)
             intent.putExtra("EMAIL_EXTRA", email)
             intent.putExtra("NAME_EXTRA", nombreNino)
+            intent.putExtra("NAME_RECEP", nombreApoderado)
             intent.putExtra("APODE_EXTRA", false)
             startActivity(intent)
         }

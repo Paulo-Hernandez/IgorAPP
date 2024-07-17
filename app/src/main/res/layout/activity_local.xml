@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Calendario">
+    tools:context=".Local">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FDFDFD"
-        android:orientation="vertical">
+        android:layout_width="393dp"
+        android:layout_height="787dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,16 +51,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
-        </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="#000000" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="49dp"
             android:orientation="horizontal">
 
             <Space
@@ -68,40 +65,13 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/textViewAdult"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Estadisticas de emociones"
-                android:textSize="34sp"
-                android:textStyle="bold" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/fecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Dia:"
+                android:text="Localizacion"
                 android:textSize="20sp" />
 
             <Space
@@ -109,26 +79,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <EditText
-                android:id="@+id/editTextDia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="date"
-                android:focusable="false"/>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="382dp"
             android:orientation="horizontal">
 
             <Space
@@ -136,25 +91,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/calcu"
-                android:layout_width="16dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Calcular" />
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="215dp"
+                android:layout_height="372dp"
+                android:layout_weight="1" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-
         </LinearLayout>
 
     </LinearLayout>

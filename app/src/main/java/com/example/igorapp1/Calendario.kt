@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Button
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -43,6 +44,11 @@ class Calendario : AppCompatActivity() {
             intent.putExtra("NAME_EXTRA", name)
             intent.putExtra("APODE_EXTRA", apode)
             startActivity(intent)
+        }
+
+        val calButton: Button = findViewById(R.id.calcu)
+        calButton.setOnClickListener {
+
         }
 
         setupDatePicker()

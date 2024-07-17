@@ -14,6 +14,7 @@ class Menu : AppCompatActivity() {
         val email = intent.getStringExtra("EMAIL_EXTRA")
         val name = intent.getStringExtra("NAME_EXTRA") ?: "Usuario"
         val apode = intent.getStringExtra("APODE_EXTRA")
+        val recep = intent.getStringExtra("NAME_RECEP")
 
         val textViewSal = findViewById<TextView>(R.id.saludo)
         textViewSal.text = "¡Hola $name!"
@@ -23,6 +24,15 @@ class Menu : AppCompatActivity() {
             val intent = Intent(this, Emotion::class.java)
             intent.putExtra("EMAIL_EXTRA", email)
             intent.putExtra("NAME_EXTRA", name)
+            intent.putExtra("APODE_EXTRA", apode)
+            startActivity(intent)
+        }
+
+        val mensajeButton: ImageButton = findViewById(R.id.mensaje)
+        mensajeButton.setOnClickListener {
+            val intent = Intent(this, Mensaje::class.java)
+            intent.putExtra("EMAIL_EXTRA", email)
+            intent.putExtra("NAME_EXTRA", recep)
             intent.putExtra("APODE_EXTRA", apode)
             startActivity(intent)
         }

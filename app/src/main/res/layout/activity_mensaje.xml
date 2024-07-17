@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Calendario">
+    tools:context=".Mensaje">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FDFDFD"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="76dp"
             android:orientation="horizontal">
 
             <Space
@@ -35,31 +34,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/salEmotion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="¡Hola Usuario!"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="#000000" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="46dp"
+            android:background="#88C400D8"
             android:orientation="horizontal">
 
             <Space
@@ -68,40 +48,13 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/textViewAdult"
+                android:id="@+id/receptor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Estadisticas de emociones"
-                android:textSize="34sp"
-                android:textStyle="bold" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/fecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Dia:"
+                android:text="Niño/a"
                 android:textSize="20sp" />
 
             <Space
@@ -109,52 +62,67 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mensajes"
+            android:layout_width="match_parent"
+            android:layout_height="574dp"
+            android:background="#D0B2DC"
+            android:orientation="horizontal">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="573dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="#88C400D8"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <EditText
-                android:id="@+id/editTextDia"
+                android:id="@+id/editTextText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:backgroundTint="#000000"
                 android:ems="10"
-                android:gravity="center"
-                android:inputType="date"
-                android:focusable="false"/>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:orientation="horizontal">
+                android:hint="Mensaje"
+                android:inputType="text" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/calcu"
-                android:layout_width="16dp"
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="43dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Calcular" />
+                android:backgroundTint="#3BFFFFFF"
+                android:foregroundGravity="center"
+                android:src="@android:drawable/ic_menu_send" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-
         </LinearLayout>
 
     </LinearLayout>

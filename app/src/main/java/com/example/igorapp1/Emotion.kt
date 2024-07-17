@@ -9,7 +9,9 @@ import androidx.appcompat.app.AlertDialog
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.Timestamp
+import java.util.*
 
 class Emotion : AppCompatActivity() {
 
