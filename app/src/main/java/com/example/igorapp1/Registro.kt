@@ -14,8 +14,11 @@ import java.util.*
 import android.app.DatePickerDialog
 import android.text.TextWatcher
 import android.text.Editable
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Registro : AppCompatActivity() {
+
+    private val db = FirebaseFirestore.getInstance()
 
     private lateinit var registroButton: Button
     private lateinit var usernameEditText: EditText
@@ -23,6 +26,7 @@ class Registro : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var password2EditText: EditText
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,8 +64,37 @@ class Registro : AppCompatActivity() {
                         passwordEditText.text.toString()
                     ).addOnCompleteListener { task ->
                         if (task.isSuccessful) {
+                            val email = emailEditText.text.toString()
+                            val nombre = usernameEditText.text.toString()
+                            val fnaci = fnacimientoEditText.text.toString()
+
+                            db.collection("usuarios").document(email).set(
+                                hashMapOf("nombre" to nombre,
+                                          "fnaci" to fnaci
+                                    )
+                            )
+
+                            val datosApoderado = hashMapOf(
+                                "nombre" to nombre,
+                                "apoderado" to true
+                            )
+
+                            val datosNino = hashMapOf(
+                                "nombre" to "Niño/a",
+                                "apoderado" to false
+                            )
+
+                            db.collection("perfiles").document(email)
+                                .set(
+                                    mapOf(
+                                        "apoderado" to datosApoderado,
+                                        "nino" to datosNino
+                                    )
+                                )
+
                             Toast.makeText(this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
                             showAlert("Usuario registrado con éxito") {
+
                                 // Navegar a MainActivity
                                 val intent = Intent(this@Registro, MainActivity::class.java)
                                 startActivity(intent)
