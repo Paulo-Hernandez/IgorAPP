@@ -34,7 +34,7 @@ class Emotion : AppCompatActivity() {
 
         val igorButton: ImageView = findViewById(R.id.igor)
         igorButton.setOnClickListener {
-            val intent = Intent(this, Emotion::class.java)
+            val intent = Intent(this, Menu::class.java)
             intent.putExtra("EMAIL_EXTRA", email)
             intent.putExtra("NAME_EXTRA", name)
             intent.putExtra("APODE_EXTRA", apode)

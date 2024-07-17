@@ -123,8 +123,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Calendario"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
+                    android:textColor="#0B0B0B"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -156,8 +156,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Ánimo"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -196,82 +196,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Perfiles"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/rec"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#F9D48C"
-                android:orientation="vertical">
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-
-                <ImageButton
-                    android:id="@+id/recor"
-                    android:layout_width="140dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:background="#00FFFFFF"
-                    android:foregroundGravity="center"
-                    android:src="@android:drawable/ic_popup_reminder" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Recordatorio"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="166dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/men"
-                android:layout_width="201dp"
-                android:layout_height="match_parent"
-                android:background="#C5DC92"
-                android:orientation="vertical">
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-
-                <ImageButton
-                    android:id="@+id/mensaje"
-                    android:layout_width="140dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:background="#00E4DEDE"
-                    android:foregroundGravity="center"
-                    android:src="@android:drawable/ic_dialog_email" />
-
-                <TextView
-                    android:id="@+id/textViewPeque"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Mensajes"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -303,13 +229,55 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Locación"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="166dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/men"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C5DC92"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <ImageButton
+                    android:id="@+id/mensaje"
+                    android:layout_width="140dp"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center"
+                    android:background="#00E4DEDE"
+                    android:foregroundGravity="center"
+                    android:src="@android:drawable/ic_dialog_email" />
+
+                <TextView
+                    android:id="@+id/textViewPeque"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Mensajes"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

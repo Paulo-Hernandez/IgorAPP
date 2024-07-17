@@ -33,5 +33,14 @@ class Menu : AppCompatActivity() {
             intent.putExtra("EMAIL_EXTRA", email)
             startActivity(intent)
         }
+
+        val calendarButton: ImageButton = findViewById(R.id.calendar)
+        calendarButton.setOnClickListener {
+            val intent = Intent(this, Calendario::class.java)
+            intent.putExtra("EMAIL_EXTRA", email)
+            intent.putExtra("NAME_EXTRA", name)
+            intent.putExtra("APODE_EXTRA", apode)
+            startActivity(intent)
+        }
     }
 }
