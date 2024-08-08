@@ -12,7 +12,7 @@ class Menu : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
 
         val email = intent.getStringExtra("EMAIL_EXTRA")
-        val name = intent.getStringExtra("NAME_EXTRA") ?: "Usuario"
+        val name = intent.getStringExtra("NAME_EXTRA")
         val apode = intent.getStringExtra("APODE_EXTRA")
         val recep = intent.getStringExtra("NAME_RECEP")
 
@@ -25,6 +25,7 @@ class Menu : AppCompatActivity() {
             intent.putExtra("EMAIL_EXTRA", email)
             intent.putExtra("NAME_EXTRA", name)
             intent.putExtra("APODE_EXTRA", apode)
+            intent.putExtra("NAME_RECEP", recep)
             startActivity(intent)
         }
 
@@ -32,8 +33,9 @@ class Menu : AppCompatActivity() {
         mensajeButton.setOnClickListener {
             val intent = Intent(this, Mensaje::class.java)
             intent.putExtra("EMAIL_EXTRA", email)
-            intent.putExtra("NAME_EXTRA", recep)
+            intent.putExtra("NAME_EXTRA", name)
             intent.putExtra("APODE_EXTRA", apode)
+            intent.putExtra("NAME_RECEP", recep)
             startActivity(intent)
         }
 
@@ -50,6 +52,7 @@ class Menu : AppCompatActivity() {
             intent.putExtra("EMAIL_EXTRA", email)
             intent.putExtra("NAME_EXTRA", name)
             intent.putExtra("APODE_EXTRA", apode)
+            intent.putExtra("NAME_RECEP", recep)
             startActivity(intent)
         }
     }

@@ -9,30 +9,36 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Button
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.Timestamp
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import java.util.Date
 
 class Calendario : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
 
-    // Declarar variables para email, name y apode
     private var email: String? = null
     private var name: String? = null
     private var apode: String? = null
+    private var recep: String? = null
 
     private lateinit var EditTextDia: EditText
+    private lateinit var resultsTextView: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendario)
 
-        // Inicializar variables con los valores del intent
         email = intent.getStringExtra("EMAIL_EXTRA")
         name = intent.getStringExtra("NAME_EXTRA") ?: "Usuario"
         apode = intent.getStringExtra("APODE_EXTRA")
+        recep = intent.getStringExtra("NAME_RECEP")
 
         EditTextDia = findViewById(R.id.editTextDia)
+        resultsTextView = findViewById(R.id.resultsTextView)
 
         val textViewSaludo = findViewById<TextView>(R.id.salEmotion)
         textViewSaludo.text = "¡Hola $name!"
@@ -43,12 +49,14 @@ class Calendario : AppCompatActivity() {
             intent.putExtra("EMAIL_EXTRA", email)
             intent.putExtra("NAME_EXTRA", name)
             intent.putExtra("APODE_EXTRA", apode)
+            intent.putExtra("NAME_RECEP", recep)
             startActivity(intent)
         }
 
         val calButton: Button = findViewById(R.id.calcu)
         calButton.setOnClickListener {
-
+            val selectedDate = EditTextDia.text.toString()
+            fetchEmotionsForDate(selectedDate)
         }
 
         setupDatePicker()
@@ -71,4 +79,79 @@ class Calendario : AppCompatActivity() {
             datePickerDialog.show()
         }
     }
+
+    private fun fetchEmotionsForDate(date: String) {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val selectedDate = dateFormat.parse(date) ?: return
+
+        val calendar = Calendar.getInstance()
+        calendar.time = selectedDate
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        calendar.set(Calendar.MINUTE, 0)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+        val startOfDay = calendar.time
+
+        calendar.add(Calendar.DAY_OF_MONTH, 1)
+        val endOfDay = calendar.time
+
+        db.collection("usuarios").document(email ?: return)
+            .collection("emociones")
+            .whereGreaterThanOrEqualTo("timestamp", startOfDay)
+            .whereLessThan("timestamp", endOfDay)
+            .get()
+            .addOnSuccessListener { result ->
+                processEmotionsData(result)
+            }
+            .addOnFailureListener { e ->
+                resultsTextView.text = "Error al recuperar emociones: ${e.message}"
+            }
+    }
+
+    private fun processEmotionsData(result: QuerySnapshot) {
+        // Inicializar un mapa con todas las emociones posibles
+        val emotionCount = mutableMapOf(
+            "Feliz" to 0,
+            "Normal" to 0,
+            "Frustrado" to 0,
+            "Triste" to 0,
+            "Cansado" to 0
+        )
+
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+        // Procesar los documentos obtenidos de Firestore
+        result.documents.forEach { document ->
+            val emotion = document.getString("emocion") ?: "Desconocida"
+            val timestamp = document.getTimestamp("timestamp")?.toDate() ?: Date()
+
+            // Restar 4 horas
+            val calendar = Calendar.getInstance().apply {
+                time = timestamp
+                add(Calendar.HOUR_OF_DAY, -4)
+            }
+            val adjustedDate = calendar.time
+
+            val dateString = dateFormat.format(adjustedDate)
+            val timeString = timeFormat.format(adjustedDate)
+
+            // Incrementar el conteo para la emoción correspondiente
+            if (emotion in emotionCount) {
+                emotionCount[emotion] = emotionCount[emotion]!! + 1
+            }
+        }
+
+        // Construir el mensaje para mostrar en el TextView
+        val sb = StringBuilder()
+        sb.append("Emociones para el día seleccionado:\n")
+        emotionCount.forEach { (emotion, count) ->
+            sb.append("$emotion: $count\n")
+        }
+
+        // Mostrar el mensaje en el TextView
+        resultsTextView.text = sb.toString()
+    }
+
 }
+
