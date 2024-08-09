@@ -2,19 +2,19 @@ package com.example.igorapp1
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
-import com.google.firebase.Timestamp
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Locale
 import java.util.Date
+import java.util.Locale
 
 class Calendario : AppCompatActivity() {
 
@@ -27,6 +27,14 @@ class Calendario : AppCompatActivity() {
 
     private lateinit var EditTextDia: EditText
     private lateinit var resultsTextView: TextView
+    private lateinit var imageViewToggle: ImageView
+
+    private var currentImageIndex = 0
+    private val images = listOf(
+        R.drawable.image1, // Reemplaza con tus imágenes
+        R.drawable.image2,
+        R.drawable.image_3
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +47,7 @@ class Calendario : AppCompatActivity() {
 
         EditTextDia = findViewById(R.id.editTextDia)
         resultsTextView = findViewById(R.id.resultsTextView)
+        imageViewToggle = findViewById(R.id.imageView2)
 
         val textViewSaludo = findViewById<TextView>(R.id.salEmotion)
         textViewSaludo.text = "¡Hola $name!"
@@ -55,10 +64,29 @@ class Calendario : AppCompatActivity() {
 
         val calButton: Button = findViewById(R.id.calcu)
         calButton.setOnClickListener {
-            val selectedDate = EditTextDia.text.toString()
-            fetchEmotionsForDate(selectedDate)
+            // Cambiar la imagen a la siguiente en la secuencia
+            if (currentImageIndex == images.size - 1) {
+                currentImageIndex = 0
+            } else {
+                currentImageIndex++
+            }
+            imageViewToggle.setImageResource(images[currentImageIndex])
+
+            if (calButton.text == "Limpiar") {
+                // Cambiar a "Calcular" y color morado
+                imageViewToggle.visibility = ImageView.INVISIBLE
+                calButton.text = "Calcular"
+                calButton.setBackgroundColor(Color.parseColor("#9C27B0")) // Morado
+            } else {
+                // Cambiar a "Limpiar" y color verde
+                imageViewToggle.visibility = ImageView.VISIBLE
+                calButton.text = "Limpiar"
+                calButton.setBackgroundColor(Color.parseColor("#4CAF50")) // Verde
+            }
         }
 
+        // Mostrar la primera imagen al inicio
+        imageViewToggle.setImageResource(images[currentImageIndex])
         setupDatePicker()
     }
 
@@ -152,6 +180,7 @@ class Calendario : AppCompatActivity() {
         // Mostrar el mensaje en el TextView
         resultsTextView.text = sb.toString()
     }
-
 }
+
+
 

@@ -55,5 +55,15 @@ class Menu : AppCompatActivity() {
             intent.putExtra("NAME_RECEP", recep)
             startActivity(intent)
         }
+
+        val locationButton: ImageButton = findViewById(R.id.location)
+        locationButton.setOnClickListener {
+            val intent = Intent(this, Local::class.java)
+            intent.putExtra("EMAIL_EXTRA", email)
+            intent.putExtra("NAME_EXTRA", name)
+            intent.putExtra("APODE_EXTRA", apode)
+            intent.putExtra("NAME_RECEP", recep)
+            startActivity(intent)
+        }
     }
 }

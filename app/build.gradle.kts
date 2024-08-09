@@ -57,6 +57,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
 
 
+
     // Google Maps dependencies
     implementation("com.google.android.gms:play-services-maps:18.0.2")
     implementation("com.google.android.gms:play-services-location:21.0.1")
